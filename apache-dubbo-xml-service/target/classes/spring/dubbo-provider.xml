@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="${spring.application.name}"/>
+    <dubbo:registry address="N/A" port="20880"/>
+    <!--<dubbo:protocol name="tri" port="20880" serialization="protobuf"/>-->
+    <dubbo:service interface="org.apache.dubbo.demo.DemoService"  ref="demoService" protocol="dubbo" />
+    <dubbo:service interface="com.zpb.dubbo.proto.hello.HelloService" ref="helloService" />
+
+    <bean id="demoService" class="com.zpb.dubbo.provider.DemoServiceImpl"/>
+    <bean id="helloService" class="com.zpb.dubbo.provider.HelloServiceImpl"/>
+    <!-- 使用注册中心时 -->
+    <!--<dubbo:registry address="zookeeper://${zookeeper.address:127.0.0.1}:2181"/>-->
+    <!--<dubbo:registry address="nacos://127.0.0.1:8848"/>-->
+
+    <!--<dubbo:registry address="N/A"/>-->
+    <!--<dubbo:protocol name="tri" port="20881" serialization="protobuf"/>-->
+
+    <!--<bean id="demoServiceImpl" class="com.zpb.dubbo.provider.DemoServiceImpl"/>-->
+    <!--<bean id="helloServiceImpl" class="com.zpb.dubbo.provider.HelloServiceImpl"/>-->
+
+    <!--<dubbo:service serialization="protobuf" interface="org.apache.dubbo.demo.DemoService"-->
+    <!--               ref="demoServiceImpl" registry="N/A"/>-->
+    <!--<dubbo:service serialization="protobuf" interface="com.zpb.dubbo.proto.hello.HelloService"-->
+    <!--               ref="helloServiceImpl" registry="N/A"/>-->
+
+</beans>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <!-- 使用注册中心时 -->
+    <!--<dubbo:application name="demo-consumer"/>-->
+    <!--<dubbo:registry address="nacos://localhost:8848"/>-->
+    <!--<dubbo:reference id="demoService" check="false" interface="org.apache.dubbo.demo.DemoService"/>-->
+    <!--<dubbo:reference id="helloService" check="false" interface="com.zpb.dubbo.proto.hello.HelloService"/>-->
+
+    <!-- 不使用注册中心时 -->
+    <dubbo:application name="${spring.application.name}" />
+    <!--<dubbo:registry address="N/A" />-->
+    <!--<dubbo:protocol name="dubbo" port="20880"/>-->
+    <dubbo:reference id="demoService" scope="local" interface="org.apache.dubbo.demo.DemoService"
+                     url="dubbo://localhost:20880" protocol="dubbo"/>
+    <dubbo:reference id="helloService" interface="com.zpb.dubbo.proto.hello.HelloService"
+                     url="dubbo://localhost:20880" />
+
+
+    <!--<dubbo:config-center address="N/A" />-->
+
+    <!--<dubbo:reference url="dubbo://localhost:20880"  id="demoService" interface="org.apache.dubbo.demo.DemoService" registry="N/A"/>-->
+    <!--<dubbo:reference url="dubbo://localhost:20880" id="helloService" interface="com.zpb.dubbo.proto.hello.HelloService" registry="N/A" />-->
+    <!--<dubbo:reference id="demoService" interface="org.apache.dubbo.demo.DemoService" url="dubbo://localhost:20880" registry="N/A"/>-->
+    <!--<dubbo:reference id="helloService" interface="com.zpb.dubbo.proto.hello.HelloService" url="dubbo://localhost:20880" registry="N/A"/>-->
+
+</beans>

@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: apache-dubbo-service-provider
+server:
+  port: 9000
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+    qos-enable: true
+    qos-port: 33333
+    qos-accept-foreign-ip: false
+
+  # 注册中心地址
+  registry:
+    address: nacos://127.0.0.1:8848
+  # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
+
+  # 配置单个协议
+#  protocol:
+#    name: rmi
+#    port: 20888
+#    serialization: protobuf
+
+  # 配置多个协议,配置多个协议时，单个不生效
+  protocols:
+    default-protocol:
+      name: dubbo
+      port: 20880
+      serialization: protobuf
+    demo-protocol:
+      port: 20881
+      name: tri
+      serialization: protobuf
+    helo-protocol:
+      port: 20882
+      name: dubbo
+      serialization: protobuf

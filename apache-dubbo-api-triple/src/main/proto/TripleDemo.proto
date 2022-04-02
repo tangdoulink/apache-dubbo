@@ -1,0 +1,29 @@
+//使用 proto3 语法 ,未指定则使用proto2
+syntax = "proto3";
+
+// 是否生成equals和hashcode方法 true:生成 false:默认值，不生成
+option java_generate_equals_and_hash = true;
+
+// 生成多个class文件
+option java_multiple_files = true;
+
+//生成 proto 文件所在包路径
+package com.zpb.dubbo.proto.triple;
+
+// 请求体
+message TripleRequest {
+  string name = 1;
+}
+
+// 响应体
+message TripleResponse {
+  string message = 2;
+}
+
+// rpc 接口
+service TripleService {
+
+  // 普通 rpc 接口
+  rpc sayHello(TripleRequest) returns (TripleResponse);
+
+}

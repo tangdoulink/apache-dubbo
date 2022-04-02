@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: apache-dubbo-consume
+server:
+  port: 8000
+
+dubbo:
+  application:
+    name: ${spring.application.name}
+    qos-enable: true
+    qos-port: 22222
+    qos-accept-foreign-ip: true
+
+  # 注册中心地址
+  registry:
+    address: nacos://127.0.0.1:8848
+  # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
+#  protocol:
+#    name: triple
+#    port: 20880
+#    serialization: protobuf
+
+
