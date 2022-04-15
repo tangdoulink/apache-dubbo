@@ -2,7 +2,8 @@ spring:
   application:
     name: apache-dubbo-service-provider
 server:
-  port: 9000
+  port: 9009
+  shutdown: graceful
 
 dubbo:
   application:
@@ -13,7 +14,10 @@ dubbo:
 
   # 注册中心地址
   registry:
-    address: nacos://127.0.0.1:8848
+    address: nacos://150.158.139.25:8848
+    parameters:
+      namespace: dubbo
+      group: ${spring.application.name}
   # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
 
   # 配置单个协议

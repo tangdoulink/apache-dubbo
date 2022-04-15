@@ -18,7 +18,8 @@
     </modules>
 
     <properties>
-        <dubbo.version>3.0.5</dubbo.version>
+        <!-- dubbo-3.0.5 会报RejectedExecutionException -->
+        <dubbo.version>3.0.3</dubbo.version>
         <grpc.version>1.41.0</grpc.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>

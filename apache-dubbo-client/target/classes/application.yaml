@@ -2,7 +2,7 @@ spring:
   application:
     name: apache-dubbo-consume
 server:
-  port: 8000
+  port: 8009
 
 dubbo:
   application:
@@ -13,7 +13,7 @@ dubbo:
 
   # 注册中心地址
   registry:
-    address: nacos://127.0.0.1:8848
+    address: nacos://150.158.139.25:8848
   # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
 #  protocol:
 #    name: triple
