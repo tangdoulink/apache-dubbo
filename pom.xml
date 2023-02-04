@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zpb.dubbo</groupId>
+    <artifactId>apache-dubbo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+
+        <!-- dubbo-3.0.5 会报RejectedExecutionException -->
+        <dubbo.version>3.0.5</dubbo.version>
+        <grpc.version>1.41.0</grpc.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <protobuf.version>4.0.0-rc-2</protobuf.version>
+        <spring.boot.version>2.3.5.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR12</spring.cloud.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- spring boot 2.3.5 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--spring cloud Hoxton.SR12 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- dubbo-bom -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-bom</artifactId>
+                <version>${dubbo.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- grpc-all -->
+            <!--<dependency>-->
+            <!--    <groupId>io.grpc</groupId>-->
+            <!--    <artifactId>grpc-all</artifactId>-->
+            <!--    <version>${grpc.version}</version>-->
+            <!--    <type>pom</type>-->
+            <!--    <scope>import</scope>-->
+            <!--</dependency>-->
+
+            <!-- protobuf-parent -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-parent</artifactId>
+                <version>${protobuf.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-serialization-protobuf</artifactId>
+                <version>2.7.15</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
